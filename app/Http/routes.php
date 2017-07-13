@@ -20,9 +20,13 @@ Route::group(['prefix'=>'admin'],function (){
   Route::group(['prefix'=>'theloai'],function (){
     Route::get('list','TheLoaiController@getList');
 
-    Route::get('edit','TheLoaiController@getEdit');
+    Route::get('edit/{id}','TheLoaiController@getEdit');
+    Route::post('edit/{id}','TheLoaiController@postEdit');
 
     Route::get('add','TheLoaiController@getAdd');
+    Route::post('add','TheLoaiController@postAdd');
+
+    Route::get('delete/{id}','TheLoaiController@getDelete');
   });
 
   Route::group(['prefix'=>'loaitin'],function (){
