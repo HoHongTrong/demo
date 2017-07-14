@@ -65,7 +65,7 @@ class TheLoaiController extends Controller
     return redirect('admin/theloai/edit/'.$id)->with('thongbao','sữa thành công');
   }
   //------------------End Edit----------------
-  
+
 //------------Delete-------------------
   public function getDelete($id){
     $theloai = TheLoai::find($id);

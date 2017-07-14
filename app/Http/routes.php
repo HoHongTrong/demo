@@ -11,58 +11,70 @@
 |
 */
 use App\TheLoai;
+
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
-Route::group(['prefix'=>'admin'],function (){
+Route::group(['prefix' => 'admin'], function () {
 
-  Route::group(['prefix'=>'theloai'],function (){
-    Route::get('list','TheLoaiController@getList');
+  Route::group(['prefix' => 'theloai'], function () {
+    Route::get('list', 'TheLoaiController@getList');
 
-    Route::get('edit/{id}','TheLoaiController@getEdit');
-    Route::post('edit/{id}','TheLoaiController@postEdit');
+    Route::get('edit/{id}', 'TheLoaiController@getEdit');
+    Route::post('edit/{id}', 'TheLoaiController@postEdit');
 
-    Route::get('add','TheLoaiController@getAdd');
-    Route::post('add','TheLoaiController@postAdd');
+    Route::get('add', 'TheLoaiController@getAdd');
+    Route::post('add', 'TheLoaiController@postAdd');
 
-    Route::get('delete/{id}','TheLoaiController@getDelete');
+    Route::get('delete/{id}', 'TheLoaiController@getDelete');
   });
 
-  Route::group(['prefix'=>'loaitin'],function (){
-    Route::get('list','LoaiTinController@getList');
+  Route::group(['prefix' => 'loaitin'], function () {
+    Route::get('list', 'LoaiTinController@getList');
 
-    Route::get('edit/{id}','LoaiTinController@getEdit');
-    Route::post('edit/{id}','LoaiTinController@postEdit');
+    Route::get('edit/{id}', 'LoaiTinController@getEdit');
+    Route::post('edit/{id}', 'LoaiTinController@postEdit');
 
-    Route::get('add','LoaiTinController@getAdd');
-    Route::post('add','LoaiTinController@postAdd');
+    Route::get('add', 'LoaiTinController@getAdd');
+    Route::post('add', 'LoaiTinController@postAdd');
 
-    Route::get('delete/{id}','LoaiTinController@getDelete');
+    Route::get('delete/{id}', 'LoaiTinController@getDelete');
   });
 
-  Route::group(['prefix'=>'tintuc'],function (){
-    Route::get('list','TinTucController@getList');
+  Route::group(['prefix' => 'tintuc'], function () {
+    Route::get('list', 'TinTucController@getList');
 
-    Route::get('edit','TinTucController@getEdit');
+    Route::get('edit/{id}', 'TinTucController@getEdit');
+    Route::post('edit/{id}', 'TinTucController@postEdit');
 
-    Route::get('add','TinTucController@getAdd');
+    Route::get('add', 'TinTucController@getAdd');
+    Route::post('add', 'TinTucController@postAdd');
+
+    Route::get('delete/{id}', 'TinTucController@getDelete');
   });
 
-  Route::group(['prefix'=>'slide'],function (){
-    Route::get('list','SlideController@getList');
 
-    Route::get('edit','SlideController@getEdit');
 
-    Route::get('add','SlideController@getAdd');
+  //------------ idTheLoai truyền sang AjaxController
+  Route::group(['prefix' => 'ajax'], function () {
+    Route::get('loaitin/{idTheLoai}', 'AjaxController@getAjaxLoaiTin');
+  });
+//---------------------------------------------------------------
+
+  Route::group(['prefix' => 'slide'], function () {
+    Route::get('list', 'SlideController@getList');
+
+    Route::get('edit', 'SlideController@getEdit');
+
+    Route::get('add', 'SlideController@getAdd');
   });
 
-  Route::group(['prefix'=>'user'],function (){
-    Route::get('list','UserController@getList');
+  Route::group(['prefix' => 'user'], function () {
+    Route::get('list', 'UserController@getList');
 
-    Route::get('edit','UserController@getEdit');
+    Route::get('edit', 'UserController@getEdit');
 
-    Route::get('add','UserController@getAdd');
+    Route::get('add', 'UserController@getAdd');
   });
-
 });
