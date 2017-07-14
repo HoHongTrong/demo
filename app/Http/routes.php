@@ -32,9 +32,13 @@ Route::group(['prefix'=>'admin'],function (){
   Route::group(['prefix'=>'loaitin'],function (){
     Route::get('list','LoaiTinController@getList');
 
-    Route::get('edit','LoaiTinController@getEdit');
+    Route::get('edit/{id}','LoaiTinController@getEdit');
+    Route::post('edit/{id}','LoaiTinController@postEdit');
 
     Route::get('add','LoaiTinController@getAdd');
+    Route::post('add','LoaiTinController@postAdd');
+
+    Route::get('delete/{id}','LoaiTinController@getDelete');
   });
 
   Route::group(['prefix'=>'tintuc'],function (){

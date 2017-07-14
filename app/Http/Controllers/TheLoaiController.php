@@ -16,7 +16,31 @@ class TheLoaiController extends Controller
     $theloai = TheLoai::all();
     return view('admin.theloai.list', ['theloai' => $theloai]);
   }
-//-------------Edit-------------------------------------
+
+//-------------------Add-------------------------
+  public function getAdd()
+  {
+    return view('admin.theloai.add');
+  }
+
+  public function postAdd(Request $request)
+  {
+    $this->validate($request,
+      ['Ten' => 'required|min:3|max:100'],
+      [
+        'Ten.required' => 'Bạn chưa nhập tên thể loại',
+        'Ten.min' => 'Độ dài ít nhất 3 ký tự',
+        'Ten.max' => 'Độ dài lớn nhất 100 ký tự'
+      ]);
+    $theloai = new TheLoai();
+    $theloai->Ten = $request->Ten;
+    $theloai->TenKhongDau = changeTitle($request->Ten);
+    $theloai->save();
+    return redirect('admin/theloai/add')->with('thongbao', 'thêm thành công');
+  }
+  //------------------End Add-------------
+
+  //-------------Edit-------------------------------------
   public function getEdit($id)
   {
     $theloai = TheLoai::find($id);
@@ -41,27 +65,7 @@ class TheLoaiController extends Controller
     return redirect('admin/theloai/edit/'.$id)->with('thongbao','sữa thành công');
   }
   //------------------End Edit----------------
-//-------------------Add-------------------------
-  public function getAdd()
-  {
-    return view('admin.theloai.add');
-  }
-
-  public function postAdd(Request $request)
-  {
-    $this->validate($request,
-      ['Ten' => 'required|min:3|max:100'],
-      [
-        'Ten.required' => 'Bạn chưa nhập tên thể loại',
-        'Ten.min' => 'Độ dài ít nhất 3 ký tự',
-        'Ten.max' => 'Độ dài lớn nhất 100 ký tự'
-      ]);
-    $theloai = new TheLoai();
-    $theloai->Ten = $request->Ten;
-    $theloai->TenKhongDau = changeTitle($request->Ten);
-    $theloai->save();
-    return redirect('admin/theloai/add')->with('thongbao', 'thêm thành công');
-  }
+  
 //------------Delete-------------------
   public function getDelete($id){
     $theloai = TheLoai::find($id);

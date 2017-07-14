@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header">Thể Loại
+          <h1 class="page-header"> Edit thể loại
             <small>{{$theloai->Ten}}</small>
           </h1>
         </div>

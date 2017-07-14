@@ -30,29 +30,55 @@
         <!-- /.nav-second-level -->
       </li>
       <li>
-        <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Loại Tin<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
           <li>
-            <a href="#">List Product</a>
+            <a href="admin/loaitin/list">Danh Sách Loại Tin<</a>
           </li>
           <li>
-            <a href="#">Add Product</a>
+            <a href="admin/loaitin/add">Thêm Loại Tin<</a>
           </li>
         </ul>
         <!-- /.nav-second-level -->
       </li>
       <li>
-        <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Tin Tức<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
           <li>
-            <a href="#">List User</a>
+            <a href="admin/tintuc/list">Danh Sách Tin Tức<</a>
           </li>
           <li>
-            <a href="#">Add User</a>
+            <a href="admin/tintuc/add">Thêm Tin Tức<</a>
           </li>
         </ul>
         <!-- /.nav-second-level -->
       </li>
+      <li>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Slide<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <a href="admin/tintuc/list">Danh Sách Slide<</a>
+          </li>
+          <li>
+            <a href="admin/tintuc/add">Thêm Slide<</a>
+          </li>
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> User<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <a href="admin/user/list">Danh Sách User<</a>
+          </li>
+          <li>
+            <a href="admin/user/add">Thêm User<</a>
+          </li>
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+
+
     </ul>
   </div>
   <!-- /.sidebar-collapse -->
