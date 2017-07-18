@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\TinTuc;
+use App\Comment;
 
 class TinTucController extends Controller {
 
@@ -75,34 +76,60 @@ class TinTucController extends Controller {
 
   //-------------Edit-------------------------------------
   public function getEdit($id) {
-    $theloai = TheLoai::find($id);
-    Return view('admin.tintuc.edit', ['theloai' => $theloai]);
+    $theloai = TheLoai::all();
+    $loaitin = LoaiTin::all();
+    $tintuc = TinTuc::find($id);
+    Return view('admin.tintuc.edit', ['tintuc' => $tintuc,'theloai'=>$theloai,'loaitin'=>$loaitin]);
   }
 
   public function postEdit(Request $request, $id) {
-    $theloai = TheLoai::find($id);
+    $tintuc = TinTuc::find($id);
     $this->validate($request,
       [
-        'Ten' => 'required|unique:TheLoai,Ten|min:3|max:100'
+        'LoaiTin' => 'required',
+        'TieuDe' => 'required|min:3|unique:TinTuc,TieuDe',/*unique:TinTuc,TieuDe tên bảng,trường*/
+        'TomTat' =>'required',
+        'NoiDung' =>'required',
       ],
       [
-        'Ten.required' => 'Bạn chưa nhập tên thể loại',
-        'Ten.unique' => 'Tên đã tồn tại',
-        'Ten.min' => 'Độ dài ít nhất 3 ký tự',
-        'Ten.max' => 'Độ dài lớn nhất 100 ký tự'
+        'LoaiTin.required' => 'Bạn chưa chọn loại tin',
+        'TieuDe.required' => 'Bạn chưa nhập tiêu đề',
+        'TieuDe.min' => 'Độ dài ít nhất 3 ký tự',
+        'TieuDe.unique' => 'Trùng tiêu đề',
+        'TomTat.required' => 'Bạn chưa nhập tóm tắt',
+        'NoiDung.required' => 'Bạn chưa nhập nội dung'
       ]);
     // tiến hành sữa
-    $theloai->Ten = $request->Ten;
-    $theloai->TenKhongDau = changeTitle($request->Ten);
-    $theloai->save();
-    return redirect('admin/theloai/edit/' . $id)->with('thongbao', 'sữa thành công');
+    $tintuc->TieuDe = $request->TieuDe;
+    $tintuc->TieuDeKhongDau = changeTitle($request->TieuDe);
+    $tintuc->idLoaiTin = $request->LoaiTin;
+    $tintuc->TomTat = $request->TomTat;
+    $tintuc->NoiDung = $request->NoiDung;
+    if ($request->hasFile('Hinh')) {
+      $file = $request->file('Hinh');
+      $duoi = $file->getClientOriginalExtension();
+      if ($duoi !='jpg' && $duoi !='png' )
+      {
+        return redirect('admin/tintuc/add')->with('thongbao', 'ban chỉ được nhập jpg,png');
+      }
+      $name = $file->getClientOriginalName();
+      $Hinh = str_random(4) . "_" . $name;
+      while (file_exists("upload/tintuc/" . $Hinh)) {
+        $Hinh = str_random(4) . "_" . $name;
+      }
+      $file->move("upload/tintuc", $Hinh);
+      unlink("upload/tintuc/".$tintuc->Hinh);
+      $tintuc->Hinh = $Hinh;
+    }
+    $tintuc->save();
+    return redirect('admin/tintuc/edit/'.$id)->with('thongbao', 'sữa thành công');
   }
   //------------------End Edit----------------
 
 //------------Delete-------------------
   public function getDelete($id) {
-    $theloai = TheLoai::find($id);
-    $theloai->delete();
-    return redirect('admin/theloai/list')->with('thongbao', 'xóa thành công');
+    $tintuc = TinTuc::find($id);
+    $tintuc->delete();
+    return redirect('admin/tintuc/list')->with('thongbao', 'xóa thành công');
   }
 }

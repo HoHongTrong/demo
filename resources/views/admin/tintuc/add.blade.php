@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
               <label>Tiêu đề :</label>
-              <input class="form-control" name="TieuDe" placeholder="Please Enter Category Name"/>
+              <input class="form-control" name="TieuDe" placeholder="Nhập tiêu đề"/>
             </div>
             <div class="form-group">
               <label>Tóm Tắt</label>

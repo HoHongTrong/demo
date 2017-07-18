@@ -57,10 +57,10 @@
         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Slide<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
           <li>
-            <a href="admin/tintuc/list">Danh Sách Slide<</a>
+            <a href="admin/slide/list">Danh Sách Slide<</a>
           </li>
           <li>
-            <a href="admin/tintuc/add">Thêm Slide<</a>
+            <a href="admin/slide/add">Thêm Slide<</a>
           </li>
         </ul>
         <!-- /.nav-second-level -->
