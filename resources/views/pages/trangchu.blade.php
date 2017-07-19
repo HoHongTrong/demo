@@ -41,7 +41,7 @@
                   <div class="col-md-8 border-right">
                     <div class="col-md-5">
                       <a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">
-                        <img class="img-responsive" src="upload/tintuc/{{$tin1->Hinh}}" alt="">
+                        <img class="img-responsive" src="upload/tintuc/{{$tin1['Hinh']}}" alt="">
                       </a>
                     </div>
 
@@ -60,7 +60,7 @@
                       <a href="tintuc/{{$tintuc['id']}}/{{$tintuc['TieuDeKhongDau']}}.html">
                         <h4>
                           <span class="glyphicon glyphicon-list-alt"></span>
-                          {{$tintuc->TieuDe}}
+                          {{$tintuc['TieuDe']}}
                         </h4>
                       </a>
                     @endforeach
