@@ -99,7 +99,6 @@ class TinTucController extends Controller {
         'TomTat.required' => 'Bạn chưa nhập tóm tắt',
         'NoiDung.required' => 'Bạn chưa nhập nội dung'
       ]);
-    // tiến hành sữa
     $tintuc->TieuDe = $request->TieuDe;
     $tintuc->TieuDeKhongDau = changeTitle($request->TieuDe);
     $tintuc->idLoaiTin = $request->LoaiTin;
@@ -118,7 +117,7 @@ class TinTucController extends Controller {
         $Hinh = str_random(4) . "_" . $name;
       }
       $file->move("upload/tintuc", $Hinh);
-      unlink("upload/tintuc/".$tintuc->Hinh);
+      @unlink('upload/tintuc/'.$tintuc->Hinh);
       $tintuc->Hinh = $Hinh;
     }
     $tintuc->save();
