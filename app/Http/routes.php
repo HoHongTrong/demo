@@ -46,7 +46,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 
     Route::get('delete/{id}', 'LoaiTinController@getDelete');
   });
-
+//------- Tin Tuc-------------------
   Route::group(['prefix' => 'tintuc'], function () {
     Route::get('list', 'TinTucController@getList');
 
@@ -63,7 +63,6 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 
     Route::get('delete/{id}/{idTintuc}', 'CommentController@getDelete');
   });
-
 
   //------------ idTheLoai truyền sang AjaxController
   Route::group(['prefix' => 'ajax'], function () {

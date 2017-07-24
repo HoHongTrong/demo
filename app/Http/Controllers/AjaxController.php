@@ -11,7 +11,7 @@ use App\LoaiTin;
 
 class AjaxController extends Controller
 {
-  /*lấy id từ route*/
+  /*lấy idTheLoai từ route*/
     public function getAjaxLoaiTin($idTheLoai){
       $loaitin = LoaiTin::where('idTheLoai',$idTheLoai)->get();
       foreach ($loaitin as $lt){
