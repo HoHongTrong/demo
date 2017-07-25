@@ -115,3 +115,5 @@ Route::post('nguoidung','PagesController@postNguoiDung');
 
 Route::get('dangky','PagesController@getdangky');
 Route::post('dangky','PagesController@postdangky');
+
+Route::post('timkiem','PagesController@timkiem');
