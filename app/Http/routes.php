@@ -106,7 +106,7 @@ Route::get('tintuc/{id}/{TenKhongDau}.html','PagesController@tintuc');
 Route::get('dangnhap','PagesController@getdangnhap');
 Route::post('dangnhap','PagesController@postdangnhap');
 
-Route::post('dangxuat','PagesController@postdangxuat');
+Route::post('dangxuat','PagesController@getdangxuat');
 
 Route::post('comment/{id}','CommentController@postComment');
 
