@@ -33,7 +33,7 @@
               <td>{{$lt->id}}</td>
               <td>{{$lt->Ten}}</td>
               <td>{{$lt->TenKhongDau}}</td>
-              <td>{{$lt->theloai->Ten}}</td>
+              <td>{{$lt->TheLoai->Ten}}</td>
               <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/delete/{{$lt->id}}">
                   Delete</a></td>
               <td class="center"><i class="fa fa-pencil fa-fw"></i> <a

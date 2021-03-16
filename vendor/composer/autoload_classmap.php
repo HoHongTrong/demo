@@ -6,8 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-    'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2017_10_12_100000_create_password_resets_table.php',
+    'CreateUsersTable' => $baseDir . '/database/migrations/2017_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
@@ -522,6 +523,11 @@ return array(
     'SebastianBergmann\\RecursionContext\\Exception' => $vendorDir . '/sebastian/recursion-context/src/Exception.php',
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'TaoComment' => $baseDir . '/database/migrations/2016_06_09_022904_Tao_Comment.php',
+    'TaoLoaiTin' => $baseDir . '/database/migrations/2016_06_09_021610_Tao_LoaiTin.php',
+    'TaoSlide' => $baseDir . '/database/migrations/2016_06_09_022526_Tao_Slide.php',
+    'TaoTheLoai' => $baseDir . '/database/migrations/2016_06_09_021546_Tao_TheLoai.php',
+    'TaoTinTuc' => $baseDir . '/database/migrations/2016_06_09_021813_Tao_TinTuc.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );
